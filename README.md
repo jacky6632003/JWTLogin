@@ -35,11 +35,11 @@ FilterAttribute
 
 Dapper
 
-![image](./image/dapper.jpg)
+![image](./image/dapper1.jpg)
 
 Dependency Injection
 
-![image](./image/di.jpg)
+![image](./image/di1.jpg)
 架構
 
 ![image](./image/pattern.jpg)
