@@ -83,7 +83,11 @@ namespace JWTLogin
 
 
             // database connection - SQL
-            this.SQLConnection = this.Configuration.GetConnectionString("SQL");
+            string server = Configuration["DatabaseServer"];
+            string database = Configuration["DatabaseName"];
+            string user = Configuration["DatabaseUser"];
+            string password = Configuration["DatabasePassword"];
+            this.SQLConnection = string.Format("Server={0};Database={1};User={2};Password={3};", server, database, user, password);
 
             // database connection - Mysql
             this.MySQLConnection = this.Configuration.GetConnectionString("MySQL");
