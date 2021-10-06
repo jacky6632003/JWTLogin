@@ -1,6 +1,6 @@
 ﻿@model JWTLogin.Models.ViewModel.UserParamModel
 
-@{ ViewBag.Title = "登入"; }
+@{ ViewBag.Title = "註冊用戶"; }
 
 <h1>註冊用戶</h1>
 <form asp-action="Signup" method="post">
@@ -24,3 +24,5 @@
         <input type="submit" value="註冊" />
     </div>
 </form>
+<h1> @ViewData["Signup"] </h1>
+

@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using JWTLogin.Repository.DataModel;
+using JWTLogin.Repository.Model.ConditionModel;
+using JWTLogin.Service.Model;
 using JWTLogin.Service.ResultModel;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,9 @@ namespace JWTLogin.Service.Infrastructure.Mapping
         public ServiceProfile()
         {
             this.CreateMap<UserDataModel, UserResultModel>();
+
+
+            this.CreateMap<UserInfoModel, UserConditionModel>();
 
         }
     }

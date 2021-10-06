@@ -1,4 +1,6 @@
-﻿using JWTLogin.Service.ResultModel;
+﻿using JWTLogin.Service.Model;
+using JWTLogin.Service.ResultModel;
+using JWTLoginCommon.Config;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +10,10 @@ namespace JWTLogin.Service.Interface
 {
     public interface IAccountService
     {
-        Task<IEnumerable<UserResultModel>> GetUser();
+        Task<UserResultModel> GetUser(UserInfoModel userInfoModel, AesCryptoConfig aesCryptoConfig);
 
-        Task<IEnumerable<UserResultModel>> InsertUser();
+        Task<int> InsertUser(UserInfoModel userInfoModel, AesCryptoConfig aesCryptoConfig);
+
+        string GetJwt(string userName, ConstantsConfig constantsConfig);
     }
 }

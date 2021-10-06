@@ -1,4 +1,5 @@
 ﻿using JWTLogin.Repository.DataModel;
+using JWTLogin.Repository.Model.ConditionModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,8 @@ namespace JWTLogin.Repository.Interface
 {
     public interface IAccountRepository
     {
-        Task<IEnumerable<UserDataModel>> GetUser();
+        Task<UserDataModel> GetUser(UserConditionModel userConditionModel);
 
-        Task<IEnumerable<UserDataModel>> InsertUser();
+        Task<int> InsertUser(UserConditionModel userConditionModel);
     }
 }

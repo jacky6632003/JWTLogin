@@ -2,6 +2,8 @@ using JWTLogin.Infrastructure.DependencyInjection;
 using JWTLogin.Infrastructure.Mapping;
 using JWTLogin.Repository.DB;
 using JWTLogin.Service.Infrastructure.Mapping;
+using JWTLoginCommon.Config;
+using JWTLoginCommon.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +36,11 @@ namespace JWTLogin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            //Config
+            services.Configure<ConstantsConfig>(Configuration.GetSection(ConstantsConfig.Constant));
+            services.Configure<AesCryptoConfig>(Configuration.GetSection(AesCryptoConfig.AesCrypto));
+
             //JWT
             services.AddAuthentication("OAuth")
                .AddJwtBearer("OAuth", config =>
@@ -116,7 +123,7 @@ namespace JWTLogin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

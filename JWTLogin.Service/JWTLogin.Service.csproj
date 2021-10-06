@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JWTLogin.Repository\JWTLogin.Repository.csproj" />
+    <ProjectReference Include="..\JWTLoginCommon\JWTLoginCommon.csproj" />
   </ItemGroup>
 
 </Project>

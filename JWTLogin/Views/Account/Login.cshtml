@@ -1,0 +1,32 @@
+﻿@model JWTLogin.Models.ViewModel.LoginParamModel 
+@{
+    ViewBag.Title = "Login";
+}
+<h2>登入</h2>
+<p>測試帳號:test</p>
+<p>測試密碼:test</p>
+<form method="post" asp-controller="Account" asp-action="Login">
+    <div>
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+  
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <h1>@ViewData["err"]</h1>
+
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        <input asp-for="RememberMe" />
+        <span asp-validation-for="RememberMe"></span>
+    </div>
+
+    <input type="submit" value="登入" />
+    <a asp-area="" asp-controller="Account" asp-action="Signup">註冊</a>
+</form>

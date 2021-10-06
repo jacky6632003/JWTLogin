@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using JWTLogin.Models.ViewModel;
+using JWTLogin.Service.Model;
 using JWTLogin.Service.ResultModel;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,12 @@ namespace JWTLogin.Infrastructure.Mapping
     {
         public ControllerProfile()
         {
+            this.CreateMap<UserResultModel, UserParamModel>();
+
+            this.CreateMap<LoginParamModel, UserInfoModel>();
+
+            this.CreateMap<UserParamModel, UserInfoModel>();
+
             this.CreateMap<UserResultModel, UserViewModel>();
         }
        

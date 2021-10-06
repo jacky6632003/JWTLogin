@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTLogin.Service", "JWTLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTLogin.Repository", "JWTLogin.Repository\JWTLogin.Repository.csproj", "{AA6C085F-C4BE-4DC0-8715-E88EFC106780}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTLoginCommon", "JWTLoginCommon\JWTLoginCommon.csproj", "{F74C1DCE-6649-4FD0-9EFC-577816364E05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AA6C085F-C4BE-4DC0-8715-E88EFC106780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6C085F-C4BE-4DC0-8715-E88EFC106780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6C085F-C4BE-4DC0-8715-E88EFC106780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74C1DCE-6649-4FD0-9EFC-577816364E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74C1DCE-6649-4FD0-9EFC-577816364E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74C1DCE-6649-4FD0-9EFC-577816364E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74C1DCE-6649-4FD0-9EFC-577816364E05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

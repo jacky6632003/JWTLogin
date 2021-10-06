@@ -31,50 +31,20 @@ namespace JWTLogin.Controllers
         [Authorize]
         public IActionResult Privacy()
         {
+            var userName = User.Claims.Where(s => s.Type == "account").Select(p => p.Value).FirstOrDefault();
+            if (!string.IsNullOrEmpty(userName))
+            {
+                ViewData["userName"] = userName;
+            }
+            
             return View();
         }
-
-
-        public IActionResult Abc()
-        {
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, "jacky"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("account", "jacky")
-            };
-
-            var secretBytes = Encoding.UTF8.GetBytes(Constants.Secret);
-            var key = new SymmetricSecurityKey(secretBytes);
-            var algorithm = SecurityAlgorithms.HmacSha256;
-
-            var signingCredentials = new SigningCredentials(key, algorithm);
-
-            var token = new JwtSecurityToken(
-                Constants.Issuer,
-                Constants.Audiance,
-                claims,
-                notBefore: DateTime.Now,
-                expires: DateTime.Now.AddHours(1),
-                signingCredentials);
-
-            var tokenJson = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return Ok(new { access_token = tokenJson });
-        }
-
-        [Authorize]
-        public IActionResult Decode()
-        {
-            var aa = User.Claims.Where(s=>s.Type == "account").Select(p => new { p.Type, p.Value });
-            return Ok(new { aa = aa });
-        }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

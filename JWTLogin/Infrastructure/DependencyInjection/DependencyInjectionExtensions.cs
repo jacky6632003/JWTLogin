@@ -2,6 +2,7 @@
 using JWTLogin.Repository.Interface;
 using JWTLogin.Service.Implement;
 using JWTLogin.Service.Interface;
+using JWTLoginCommon.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace JWTLogin.Infrastructure.DependencyInjection
 
             // Service
             services.AddScoped<IAccountService, AccountService>();
+
+
+            services.AddSingleton<JwtHelpers>();
             return services;
         }
     }
