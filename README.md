@@ -26,6 +26,20 @@ run docker-compose up
 
 ![image](./image/Jwt.jpg)
 
+AES256
+
+![image](./image/aes.jpg)
+
+FilterAttribute
+![image](./image/FilterAttribute.jpg)
+
+Dapper
+
+![image](./image/dapper.jpg)
+
+Dependency Injection
+
+![image](./image/di.jpg)
 架構
 
 ![image](./image/pattern.jpg)
