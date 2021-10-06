@@ -24,7 +24,7 @@ run docker-compose up
 
 登入Jwt
 
-![image](./image/Jwt.jpg)
+![image](./image/jwt.jpg)
 
 AES256
 
