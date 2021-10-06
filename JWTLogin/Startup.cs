@@ -1,6 +1,7 @@
 using JWTLogin.Infrastructure.DependencyInjection;
 using JWTLogin.Infrastructure.Mapping;
 using JWTLogin.Repository.DB;
+using JWTLogin.Seed.Db;
 using JWTLogin.Service.Infrastructure.Mapping;
 using JWTLoginCommon.Config;
 using JWTLoginCommon.Helpers;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -89,6 +91,11 @@ namespace JWTLogin
         
             //DB
             services.AddScoped<IDatabaseHelper>(x => new DatabaseHelper(SQLConnection, MySQLConnection));
+
+            services.AddDbContext<UserContext>(options =>
+            {
+                options.UseSqlServer(this.SQLConnection);
+            });
 
             //Dendency Injection
             services.AddDendencyInjection();
