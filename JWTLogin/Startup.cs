@@ -40,12 +40,12 @@ namespace JWTLogin
             //Config
             services.Configure<ConstantsConfig>(Configuration.GetSection(ConstantsConfig.Constant));
             services.Configure<AesCryptoConfig>(Configuration.GetSection(AesCryptoConfig.AesCrypto));
-
+          
             //JWT
             services.AddAuthentication("OAuth")
                .AddJwtBearer("OAuth", config =>
                {
-                   var secretBytes = Encoding.UTF8.GetBytes(Constants.Secret);
+                   var secretBytes = Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Constant:Secret"));
                    var key = new SymmetricSecurityKey(secretBytes);
 
                    config.Events = new JwtBearerEvents()
@@ -64,8 +64,8 @@ namespace JWTLogin
                    config.TokenValidationParameters = new TokenValidationParameters()
                    {
                        ClockSkew = TimeSpan.Zero,
-                       ValidIssuer = Constants.Issuer,
-                       ValidAudience = Constants.Audiance,
+                       ValidIssuer = Configuration.GetValue<string>("Constant:Issuer"),
+                       ValidAudience = Configuration.GetValue<string>("Constant:Audiance"),
                        IssuerSigningKey = key,
                    };
                });

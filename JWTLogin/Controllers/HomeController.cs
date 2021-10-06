@@ -29,7 +29,7 @@ namespace JWTLogin.Controllers
         }
         
         [Authorize]
-        public IActionResult Privacy()
+        public IActionResult Secret()
         {
             var userName = User.Claims.Where(s => s.Type == "account").Select(p => p.Value).FirstOrDefault();
             if (!string.IsNullOrEmpty(userName))

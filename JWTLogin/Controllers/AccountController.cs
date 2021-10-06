@@ -72,7 +72,7 @@ namespace JWTLogin.Controllers
             if (result != null)
             {
                 var jwt=this._accountService.GetJwt(result.Username, _constantsConfig);
-                return Redirect(@$"Home/Privacy?access_token={jwt}");
+                return Redirect(@$"Home/Secret?access_token={jwt}");
             }
             else
             {
