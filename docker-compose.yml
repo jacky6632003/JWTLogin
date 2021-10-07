@@ -1,8 +1,8 @@
 version: "3.4"
 
 networks:
-   frontend:
-   backend:
+   demonetwork:
+      driver: bridge
    
 services:
    mssqlserver:
@@ -13,7 +13,9 @@ services:
       environment:
          - ACCEPT_EULA=Y
          - SA_PASSWORD=Password123
-         
+      networks:
+      - demonetwork
+      
    JWTLogin:
       build:
          context: .
@@ -27,5 +29,8 @@ services:
       container_name: jwt
       ports:
          - "7000:80"
+      networks:
+      - demonetwork
+      
 
    
