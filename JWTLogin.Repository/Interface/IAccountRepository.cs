@@ -11,6 +11,8 @@ namespace JWTLogin.Repository.Interface
     {
         Task<UserDataModel> GetUser(UserConditionModel userConditionModel);
 
+        Task<UserDataModel> GetUserNoPassword(string Username);
+
         Task<int> InsertUser(UserConditionModel userConditionModel);
     }
 }
