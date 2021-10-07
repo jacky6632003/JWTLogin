@@ -15,13 +15,9 @@ services:
          - DatabaseName=User
          - DatabaseUser=sa
          - DatabasePassword=Password123
-         - ExternalCatalogBaseUrl=http://${RPGSHOP_EXTERNAL_DNS_NAME_OR_IP}:7000
       container_name: jwt
       ports:
          - "7000:80"
-      networks:
-         - backend
-         - frontend
 
    mssqlserver:
       image: "mcr.microsoft.com/mssql/server"
@@ -31,5 +27,3 @@ services:
       environment:
          - ACCEPT_EULA=Y
          - SA_PASSWORD=Password123
-      networks:
-         - backend
