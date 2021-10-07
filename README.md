@@ -14,11 +14,7 @@ DatabaseUser
 
 DatabasePassword
 
-3.run code
-
-方法二
-
-run docker-compose up
+2.run code(初始資料會自動寫入)
 
 登入
 
