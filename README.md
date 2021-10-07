@@ -6,7 +6,13 @@
 
 1.修改appsettings的db連結
 
-2 跑SQL/User.sql 新增tabel
+DatabaseServer
+
+DatabaseName
+
+DatabaseUser
+
+DatabasePassword
 
 3.run code
 
