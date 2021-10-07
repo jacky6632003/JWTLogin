@@ -66,8 +66,17 @@ namespace JWTLogin.Repository.Implement
             return $@"
 SELECT [Username]
       ,[Password]
-FROM [Account].[dbo].[User]
+FROM [dbo].[User]
 where [Username]=@Username and Password=@Password";
+        }
+
+        private string GetUserNoPasswordSQL()
+        {
+            return $@"
+SELECT [Username]
+      ,[Password]
+FROM [dbo].[User]
+where [Username]=@Username";
         }
 
         private string InsertUserSQL()
@@ -78,15 +87,6 @@ where [Username]=@Username and Password=@Password";
      VALUES
            (@Username
            ,@Password)";
-        }
-
-        private string GetUserNoPasswordSQL()
-        {
-            return $@"
-SELECT [Username]
-      ,[Password]
-FROM [Account].[dbo].[User]
-where [Username]=@Username";
         }
     }
 }
