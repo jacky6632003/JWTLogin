@@ -21,11 +21,11 @@
         <h1>@ViewData["err"]</h1>
 
     </div>
-    <div>
+    @*<div>
         <label asp-for="RememberMe"></label>
         <input asp-for="RememberMe" />
         <span asp-validation-for="RememberMe"></span>
-    </div>
+    </div>*@
 
     <input type="submit" value="登入" />
     <a asp-area="" asp-controller="Account" asp-action="Signup">註冊</a>
