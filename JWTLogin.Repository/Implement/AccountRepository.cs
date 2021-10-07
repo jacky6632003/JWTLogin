@@ -30,7 +30,20 @@ namespace JWTLogin.Repository.Implement
                     Username = userConditionModel.Username
                 }
                     );
-                return result.ToList().FirstOrDefault();
+                return result.FirstOrDefault();
+            }
+        }
+
+        public async Task<UserDataModel> GetUserNoPassword(string Username)
+        {
+            using (SqlConnection conn = (_databaseHelper.GetConnection(this._databaseHelper.SQLConnectionString)) as SqlConnection)
+            {
+                var result = await conn.QueryAsync<UserDataModel>(GetUserNoPasswordSQL(), new
+                {
+                    Username = Username
+                }
+                    );
+                return result.FirstOrDefault();
             }
         }
 
@@ -65,6 +78,15 @@ where [Username]=@Username and Password=@Password";
      VALUES
            (@Username
            ,@Password)";
+        }
+
+        private string GetUserNoPasswordSQL()
+        {
+            return $@"
+SELECT [Username]
+      ,[Password]
+FROM [Account].[dbo].[User]
+where [Username]=@Username";
         }
     }
 }

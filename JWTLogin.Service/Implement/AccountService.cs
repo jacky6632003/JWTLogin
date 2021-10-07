@@ -55,9 +55,21 @@ namespace JWTLogin.Service.Implement
             return result;
         }
 
+        /// <summary>
+        /// 註冊
+        /// </summary>
+        /// <param name="userInfoModel"></param>
+        /// <param name="aesCryptoConfig"></param>
+        /// <returns></returns>
         public async Task<int> InsertUser(UserInfoModel userInfoModel, AesCryptoConfig aesCryptoConfig)
         {
             var cond = this._mapper.Map<UserInfoModel, UserConditionModel>(userInfoModel);
+            var userDate=await this._accountRepository.GetUserNoPassword(cond.Username);
+            //已有Username 不能註冊
+            if (userDate != null)
+            {
+                return 0;
+            }
             cond.Password=AesCryptoHelper.Encrypt(aesCryptoConfig.AesKey, aesCryptoConfig.AesIv, userInfoModel.Password);
             var data = await this._accountRepository.InsertUser(cond);
 
