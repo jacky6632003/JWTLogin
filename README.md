@@ -1,5 +1,7 @@
 # JWTLogin 範例碼
 
+DB:使用mssql
+
 ## 使用方法
 
 方法一
